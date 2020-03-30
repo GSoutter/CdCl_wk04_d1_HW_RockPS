@@ -2,9 +2,14 @@ require('sinatra')
 require('sinatra/contrib/all') if development?
 
 require_relative('./models/rock_paper_scissors.rb')
+also_reload('./models/*')
+also_reload('./views/*')
+#also_reload('./public/css/style.css')
 
-get '/welcome' do
-  return "Welcome to the Rock Paper Scissors Webpage"
+
+get '/' do
+
+  erb(:welcome)
 end
 
 
